@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>StructuredLogging.Analyzers</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Pavel Fedarovich</Authors>
+    <Company>Pavel Fedarovich</Company>
+    <Copyright>© Pavel Fedarovich, 2021</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/fedarovich/structured-logging-analyzers</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fedarovich/structured-logging-analyzers</RepositoryUrl>
+    <PackageTags>structured logging, semantic logging, analyzers</PackageTags>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+
+    <LangVersion>9.0</LangVersion>
+
+    <Description>Roslyn analyzers that help to enforce using structured logging with Microsoft.Extensions.Logging</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StructuredLogging.Analyzers.CodeFixes\StructuredLogging.Analyzers.CodeFixes.csproj" />
+    <ProjectReference Include="..\StructuredLogging.Analyzers\StructuredLogging.Analyzers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="tools\*.ps1" CopyToOutputDirectory="Always" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <Target Name="_AddAnalyzersToOutput">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\StructuredLogging.Analyzers.dll" PackagePath="analyzers/dotnet/cs" />
+      <TfmSpecificPackageFile Include="$(OutputPath)\StructuredLogging.Analyzers.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />
+    </ItemGroup>
+  </Target>
+
+</Project>
