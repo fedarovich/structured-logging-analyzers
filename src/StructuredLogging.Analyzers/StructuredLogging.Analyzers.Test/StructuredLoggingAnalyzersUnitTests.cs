@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using VerifyCS = StructuredLogging.Analyzers.Test.CSharpCodeFixVerifier<
-    StructuredLogging.Analyzers.StructuredLoggingAnalyzersAnalyzer,
+    StructuredLogging.Analyzers.StructuredLoggingAnalyzer,
     StructuredLogging.Analyzers.Rule0001CodeFixProvider>;
 
 namespace StructuredLogging.Analyzers.Test

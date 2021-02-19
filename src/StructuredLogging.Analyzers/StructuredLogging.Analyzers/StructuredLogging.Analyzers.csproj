@@ -7,7 +7,7 @@
     <!-- Avoid ID conflicts with the package project. -->
     <PackageId>*$(MSBuildProjectFullPath)*</PackageId>
     <LangVersion>9.0</LangVersion>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>Pavel Fedarovich</Authors>
     <Company>Pavel Fedarovich</Company>
     <Copyright>© Pavel Fedarovich, 2021</Copyright>

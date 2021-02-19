@@ -8,12 +8,12 @@ using System.Linq;
 namespace StructuredLogging.Analyzers
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class StructuredLoggingAnalyzersAnalyzer : DiagnosticAnalyzer
+    public class StructuredLoggingAnalyzer : DiagnosticAnalyzer
     {
-        public const string Rule0001Id = "SLOG0001";
-        public const string Rule0002Id = "SLOG0002";
-        public const string Rule0003Id = "SLOG0003";
-        public const string Rule0004Id = "SLOG0004";
+        public const string Rule0001Id = "SL0001";
+        public const string Rule0002Id = "SL0002";
+        public const string Rule0003Id = "SL0003";
+        public const string Rule0004Id = "SL0004";
 
         private const string Category = "Usage";
 
@@ -50,18 +50,13 @@ namespace StructuredLogging.Analyzers
         public override void Initialize(AnalysisContext context)
         {
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
-            //context.EnableConcurrentExecution();
+            context.EnableConcurrentExecution();
 
             context.RegisterSyntaxNodeAction(AnalyzeInvocation, SyntaxKind.SimpleMemberAccessExpression);
         }
 
         private void AnalyzeInvocation(SyntaxNodeAnalysisContext context)
         {
-            //var invocation = (InvocationExpressionSyntax) context.Node;
-            //if (invocation.Expression is not MemberAccessExpressionSyntax memberAccess
-            //    || !memberAccess.Name.Identifier.Text.StartsWith("Log"))
-            //    return;
-
             var memberAccess = (MemberAccessExpressionSyntax) context.Node;
             if (!memberAccess.Name.Identifier.Text.StartsWith("Log"))
                 return;
@@ -76,7 +71,7 @@ namespace StructuredLogging.Analyzers
                 return;
 
             var invocation = memberAccess.FirstAncestorOrSelf<InvocationExpressionSyntax>();
-            var namedArguments = invocation.ArgumentList.Arguments
+            var namedArguments = invocation!.ArgumentList.Arguments
                 .Where(arg => arg.NameColon != null)
                 .ToDictionary(arg => arg.NameColon.Name.Identifier.Text);
 

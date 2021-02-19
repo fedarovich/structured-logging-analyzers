@@ -21,7 +21,7 @@ namespace StructuredLogging.Analyzers
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(Rule0003CodeFixProvider)), Shared]
     public class Rule0003CodeFixProvider : CodeFixProvider
     {
-        public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(StructuredLoggingAnalyzersAnalyzer.Rule0003Id);
+        public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(StructuredLoggingAnalyzer.Rule0003Id);
 
         public sealed override FixAllProvider GetFixAllProvider()
         {

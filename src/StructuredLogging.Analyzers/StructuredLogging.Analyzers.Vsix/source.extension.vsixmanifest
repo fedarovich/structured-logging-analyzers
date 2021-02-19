@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="StructuredLogging.Analyzers.4a03e744-9b9e-418b-bf0e-8901c6ef0f0e" Version="0.1" Language="en-US" Publisher="Pavel Fedarovich"/>
+    <Identity Id="StructuredLogging.Analyzers.4a03e744-9b9e-418b-bf0e-8901c6ef0f0e" Version="0.2" Language="en-US" Publisher="Pavel Fedarovich"/>
     <DisplayName>StructuredLogging.Analyzers</DisplayName>
     <Description xml:space="preserve">This is a sample diagnostic extension for the .NET Compiler Platform ("Roslyn").</Description>
   </Metadata>
